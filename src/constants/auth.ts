@@ -1,0 +1,1 @@
+export const COOKIE_KEY = 'PRATICE_REPO_USER'
