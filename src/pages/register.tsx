@@ -30,10 +30,10 @@ const RegisterPage = () => {
 
   const handleLogin = (data: RegisterQueryModel) => {
     const req = {
-      email: data.emailAddr!,
+      emailAddr: data.emailAddr!,
       nickname: data.nickname,
       introduce: data.introduce,
-      password: makeCryptoFunction(data.passCode!),
+      passCode: makeCryptoFunction(data.passCode!),
       userType: 'U',
     }
 

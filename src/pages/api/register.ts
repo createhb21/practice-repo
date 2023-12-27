@@ -1,25 +1,26 @@
-import { randomUUID } from 'crypto'
-import withHandler, { ResponseType } from '@/libs/server/withHandler'
+import { v1 } from 'uuid'
+import withHandler from '@/libs/server/withHandler'
+import { RegisterServerModel, StandardResponse } from '@/types'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-async function handler(req: NextApiRequest, res: NextApiResponse<ResponseType>) {
-  const { phone, email } = req.body
-  const user = phone ? { phone } : email ? { email } : null
-  if (!user) {
+async function handler(req: NextApiRequest, res: NextApiResponse<StandardResponse<RegisterServerModel>>) {
+  const { emailAddr } = req.body
+  const user = emailAddr ? { emailAddr } : null
+  if (!user?.emailAddr) {
     return res.status(400).json({ ok: false })
   }
-  const token = randomUUID()
+  const token = v1()
 
-  if (phone) {
-    console.log(phone)
-  } else if (email) {
-    console.log(email)
+  if (emailAddr) {
+    console.log(emailAddr)
   }
 
   return res.json({
-    token,
     ok: true,
-    isLogin: true,
+    result: {
+      token,
+      isLogin: true,
+    },
   })
 }
 

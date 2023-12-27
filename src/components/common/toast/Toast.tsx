@@ -1,7 +1,7 @@
 import React from 'react'
+import { toastState } from '@/stores/common'
 import { useRecoilValue } from 'recoil'
 
-import { toastState } from '@/stores/common'
 import ToastItem from './item/ToastItem'
 import * as S from './Toast.styled'
 

@@ -13,7 +13,7 @@ export type ResponseStatus = {
 }
 
 export interface StandardResponse<T> extends ResponseStatus {
-  result: T
+  result?: T
 }
 
 export interface Toast {
