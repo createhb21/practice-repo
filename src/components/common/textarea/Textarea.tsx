@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { UseFormRegisterReturn } from 'react-hook-form'
@@ -64,4 +64,4 @@ const Length = styled.span`
   `}
 `
 
-export default Textarea
+export default memo(Textarea)

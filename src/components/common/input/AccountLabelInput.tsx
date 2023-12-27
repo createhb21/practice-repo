@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, ReactNode } from 'react'
+import { useState, createContext, useContext, ReactNode, memo } from 'react'
 
 import { EyeAbledIcon, EyeDisabledIcon } from '@/assets/icon'
 import { css } from '@emotion/react'
@@ -59,7 +59,7 @@ const AccountLabelInput = ({
   )
 }
 
-AccountLabelInput.Input = function Input({ className, disabled, maxLength = 100, register }: InputProps) {
+AccountLabelInput.Input = memo(function Input({ className, disabled, maxLength = 100, register }: InputProps) {
   const { id, hasError } = useContext(LabelInputContext)
 
   return (
@@ -72,9 +72,9 @@ AccountLabelInput.Input = function Input({ className, disabled, maxLength = 100,
       {...register}
     />
   )
-}
+})
 
-AccountLabelInput.Password = function Password({ disabled, register }: PasswordProps) {
+AccountLabelInput.Password = memo(function Password({ disabled, register }: PasswordProps) {
   const { id, hasError } = useContext(LabelInputContext)
   const [isShow, setIsShow] = useState(false)
 
@@ -98,7 +98,7 @@ AccountLabelInput.Password = function Password({ disabled, register }: PasswordP
       </PasswordShowBtn>
     </>
   )
-}
+})
 
 const LabelInputWrapper = styled.div`
   position: relative;

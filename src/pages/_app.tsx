@@ -1,4 +1,6 @@
 import { type ReactElement } from 'react'
+import { RecoilRoot } from 'recoil'
+import Toast from '@/components/common/toast/Toast'
 import { AuthProvider } from '@/contexts'
 import { globalStyles, theme } from '@/styles'
 import { ThemeProvider, Global } from '@emotion/react'
@@ -14,10 +16,13 @@ const App: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
   const getLayout = Component.getLayout ?? ((page: ReactElement) => page)
 
   return (
-    <ThemeProvider theme={theme}>
-      <Global styles={globalStyles} />
-      <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <Global styles={globalStyles} />
+        <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>
+        <Toast />
+      </ThemeProvider>
+    </RecoilRoot>
   )
 }
 

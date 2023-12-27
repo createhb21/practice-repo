@@ -5,6 +5,8 @@ import { Button, AccountLabelInput, LabelContent, Textarea } from '@/components/
 import { Layout } from '@/components/public/Layout'
 import { PageTemplate } from '@/components/public/PageTemplate'
 import { ERROR_MSG } from '@/constants'
+import useIsMounted from '@/hooks/useIsMounted'
+import useToast from '@/hooks/useToast'
 import useMutation from '@/libs/client/useMutation'
 import { RegisterQueryModel, RegisterServerModel, StandardResponse } from '@/types'
 import { makeCryptoFunction } from '@/utils/helpers'
@@ -37,13 +39,27 @@ const LoginPage = () => {
     registerMutate(req)
   }
 
+  const { addToast } = useToast()
+  const isMounted = useIsMounted()
+
   useEffect(() => {
-    if (data?.ok) {
-      console.log('register success')
-    } else {
-      console.log('register failed')
+    if (!isMounted || isEmpty(data)) {
+      return
     }
-  }, [data])
+
+    if (data?.ok) {
+      addToast({
+        type: 'success',
+        content: 'register success',
+      })
+    } else {
+      addToast({
+        type: 'warning',
+        content: 'register failed',
+      })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, isMounted])
 
   return (
     <PageTemplate>

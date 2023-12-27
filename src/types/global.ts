@@ -11,3 +11,9 @@ export type ResponseStatus = {
 export interface StandardResponse<T> extends ResponseStatus {
   result: T
 }
+
+export interface Toast {
+  id: string
+  type?: 'success' | 'warning'
+  content: string
+}
