@@ -28,8 +28,6 @@ const Button = forwardRef(function Button(
   )
 })
 
-export default Button
-
 const buttonCss = (theme: Theme, color: Color) => css`
   all: unset;
 
@@ -93,3 +91,5 @@ const grayCss = (theme: Theme) => css`
     background-color: ${theme.color.gray_80};
   }
 `
+
+export default Button

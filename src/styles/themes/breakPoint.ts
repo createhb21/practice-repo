@@ -6,6 +6,8 @@ export const breakPoint = {
   device: {
     tablet: `(min-width:  767px)`,
     desktop: `(min-width: 1229px)`,
+    maxTablet: `(max-width: 767px)`,
+    maxDesktop: `(max-width: 1229px)`,
   },
 } as const
 

@@ -29,7 +29,7 @@ const Main = styled.main<LayoutMainProps>`
     min-height: ${footer && header
       ? `calc(100vh - ${theme.size.header.height_m} - ${theme.size.footer.height_m})`
       : header
-      ? `calc(100vh - ${theme.size.header.height_m}`
+      ? `calc(100vh - ${theme.size.header.height_m})`
       : footer
       ? `calc(100vh - ${theme.size.footer.height_m})`
       : '100vh'};
@@ -40,7 +40,7 @@ const Main = styled.main<LayoutMainProps>`
       min-height: ${footer && header
         ? `calc(100vh - ${theme.size.header.height_m} - ${theme.size.footer.height_t})`
         : header
-        ? `calc(100vh - ${theme.size.header.height_m}`
+        ? `calc(100vh - ${theme.size.header.height_m})`
         : footer
         ? `calc(100vh - ${theme.size.footer.height_t})`
         : '100vh'};
@@ -50,7 +50,7 @@ const Main = styled.main<LayoutMainProps>`
       min-height: ${footer && header
         ? `calc(100vh - ${theme.size.header.height_d} - ${theme.size.footer.height_d})`
         : header
-        ? `calc(100vh - ${theme.size.header.height_d}`
+        ? `calc(100vh - ${theme.size.header.height_d})`
         : footer
         ? `calc(100vh - ${theme.size.footer.height_d})`
         : '100vh'};

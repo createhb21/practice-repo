@@ -17,12 +17,24 @@ export interface LoginQueryModel {
   password?: string
 }
 
+export interface RegisterQueryModel {
+  nickname?: string
+  emailAddr?: string
+  passCode?: string
+  introduce?: string
+}
+
 export interface UserModel {
   accessToken: string
   level: AuthLevel
   name: string
   passwordUpdated: string
   refreshToken: string
+}
+
+export interface RegisterServerModel {
+  token: string
+  isLogin: boolean
 }
 
 export interface TokensServerModel {

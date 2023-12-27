@@ -10,6 +10,11 @@ export const login = async (req: type.LoginQueryModel): Promise<type.UserModel> 
 
 export const logout = () => ax.post('/signout')
 
+export const register = async (req: type.LoginQueryModel): Promise<type.UserModel> => {
+  const res = await ax.post('/register', req)
+  return res.data
+}
+
 export const renewAccessToken = async (refreshToken: string): Promise<type.TokensServerModel> => {
   const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/tokens`, {
     headers: { Authorization: `Bearer ${refreshToken}` },
