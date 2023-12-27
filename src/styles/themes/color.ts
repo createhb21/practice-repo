@@ -22,6 +22,10 @@ export const color = {
   green_20: '#02C57E',
   orange_10: '#fef0dc',
   orange_20: '#f59c15',
+  navy: '#1D2942',
+  navy_10: '#E7E9EC',
+  navy_20: '#1D2942',
+  navy_30: '#111929',
 } as const
 
 export type ColorType = typeof color

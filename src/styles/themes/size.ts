@@ -1,10 +1,30 @@
+import { breakPoint } from '@/styles/themes/breakPoint'
+import { css } from '@emotion/react'
+
 export const size = {
-  HEADER_HEIGHT: '56px',
-  NAV_WIDTH: '64px',
-  MAIN_WIDTH_PADDING: '40px',
-  SECTION_MIN_WIDTH: '1296px',
-  SECTION_MAX_WIDTH: '1660px',
-  TABLE_CELL_HEIGHT: '40px',
+  header: {
+    height_d: '80px',
+    height_m: '60px',
+  },
+  footer: {
+    height_d: '322px',
+    height_t: '348px',
+    height_m: '412px',
+  },
+  container: css`
+    max-width: 100%;
+    width: 100vw;
+    padding: 0 20px;
+
+    @media ${breakPoint.device.tablet} {
+      max-width: 1069px;
+      margin: 0 auto;
+    }
+
+    @media ${breakPoint.device.desktop} {
+      max-width: 1240px;
+    }
+  `,
 } as const
 
 export type SizeType = typeof size

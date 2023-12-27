@@ -2,13 +2,9 @@ import { type ReactElement } from 'react'
 import { Layout } from '@/components/public/Layout'
 
 export default function HomePage() {
-  return <div>Hello</div>
+  return <div>Login</div>
 }
 
 HomePage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <Layout header footer>
-      {page}
-    </Layout>
-  )
+  return <Layout header>{page}</Layout>
 }

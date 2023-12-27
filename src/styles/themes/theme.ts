@@ -1,5 +1,6 @@
 import { a11y } from './a11y'
 import { boxShadow } from './boxShadow'
+import { breakPoint } from './breakPoint'
 import { button } from './button'
 import { color } from './color'
 import { font } from './font'
@@ -20,4 +21,5 @@ export const theme = {
   boxShadow,
   input,
   a11y,
+  breakPoint,
 }
