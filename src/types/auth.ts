@@ -1,3 +1,5 @@
+import { Nullable } from '.'
+
 export interface VerifyEmailQueryModel {
   email: string
 }
@@ -21,7 +23,8 @@ export interface RegisterQueryModel {
   nickname?: string
   emailAddr?: string
   passCode?: string
-  introduce?: string
+  introduce?: Nullable<string>
+  userType?: string
 }
 
 export interface UserModel {

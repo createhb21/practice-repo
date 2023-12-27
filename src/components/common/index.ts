@@ -1,3 +1,4 @@
+export { default as InfiniteScroll } from './InfiniteScroll'
 export { default as IntersectionArea } from './IntersectionArea'
 export { default as Button } from './button/Button'
 export { default as Input } from './input/Input'

@@ -15,7 +15,7 @@ import { Theme, css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { useForm } from 'react-hook-form'
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const {
     register,
     watch,
@@ -34,6 +34,7 @@ const LoginPage = () => {
       nickname: data.nickname,
       introduce: data.introduce,
       password: makeCryptoFunction(data.passCode!),
+      userType: 'U',
     }
 
     registerMutate(req)
@@ -75,8 +76,10 @@ const LoginPage = () => {
               hasError={Boolean(errors.nickname)}
             >
               <AccountLabelInput.Input
+                maxLength={20}
                 register={register('nickname', {
                   required: ERROR_MSG.NICKNAME,
+                  maxLength: 20,
                 })}
               />
             </AccountLabelInput>
@@ -117,7 +120,7 @@ const LoginPage = () => {
                 css={introduceTextarea}
                 placeholder="Please enter the reason for rejection"
                 maxLength={512}
-                textValue={watch('introduce')}
+                textValue={watch('introduce') || ''}
                 register={register('introduce', {
                   maxLength: 512,
                 })}
@@ -131,10 +134,6 @@ const LoginPage = () => {
       </PageTemplate.PageContentsSection>
     </PageTemplate>
   )
-}
-
-LoginPage.getLayout = function getLayout(page: ReactElement) {
-  return <Layout header>{page}</Layout>
 }
 
 const Form = styled.form`
@@ -187,4 +186,12 @@ const introduceTextarea = (theme: Theme) => css`
   padding: 13px 20px 44px 20px;
 `
 
-export default LoginPage
+RegisterPage.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout header footer>
+      {page}
+    </Layout>
+  )
+}
+
+export default RegisterPage
